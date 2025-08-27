@@ -1,0 +1,37 @@
+{
+  "name": "tsgo-vs-tsc",
+  "version": "0.0.1",
+  "description": "Benchmark TypeScript-Go against TypeScript (tsgo vs tsc).",
+  "keywords": [
+    "benchmark",
+    "tsc",
+    "typescript"
+  ],
+  "homepage": "https://github.com/Bashamega/tsgo-vs-tsc#readme",
+  "bugs": {
+    "url": "https://github.com/Bashamega/tsgo-vs-tsc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bashamega/tsgo-vs-tsc.git"
+  },
+  "license": "MIT",
+  "author": "Bashamega",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "bin": {
+    "tsbench": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@typescript/native-preview": "^7.0.0-dev.20250827.1",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "prettier": "3.6.2"
+  }
+}
