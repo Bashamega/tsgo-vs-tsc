@@ -21,10 +21,10 @@ function bench(target: string) {
   const tscTime = runCommand(`npx tsc --project ${absTarget}`);
   const tsgoTime = runCommand(`npx tsgo --project ${absTarget}`);
 
-  console.log("📊 Results (ms):");
+  console.log("📊 Results:");
   console.table([
-    { Compiler: "tsc", Time: tscTime.toFixed(2) },
-    { Compiler: "tsgo", Time: tsgoTime.toFixed(2) },
+    { Compiler: "tsc", "Time (ms)": tscTime.toFixed(2) },
+    { Compiler: "tsgo", "Time (ms)": tsgoTime.toFixed(2) },
   ]);
 }
 
