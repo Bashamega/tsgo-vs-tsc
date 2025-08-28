@@ -31,7 +31,7 @@ function bench(target: string) {
 function main() {
   const args = process.argv.slice(2);
   if (args.length === 0) {
-    console.log("Usage: tsbench <path-to-tsconfig.json>");
+    console.log("Usage: tsgo-vs-tsc <path-to-tsconfig.json>");
     process.exit(1);
   }
   bench(args[0]);

@@ -20,7 +20,7 @@
   "type": "commonjs",
   "main": "dist/index.js",
   "bin": {
-    "tsbench": "dist/index.js"
+    "tsgo-vs-tsc": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
