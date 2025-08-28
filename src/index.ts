@@ -5,27 +5,31 @@ import * as path from "path";
 
 function runCommand(cmd: string): number {
   const start = performance.now();
-  try {
-    execSync(cmd, { stdio: "ignore" });
-  } catch (e) {
-    console.error(`❌ Failed: ${cmd}`);
-  }
+  execSync(cmd, { stdio: "pipe" });
   return performance.now() - start;
 }
 
 function bench(target: string) {
   console.log(`🔬 Benchmarking TypeScript compilers on: ${target}\n`);
-
+  const res = [
+    { Compiler: "tsc", "Time (ms)": 0, Error: "None!" },
+    { Compiler: "tsgo", "Time (ms)": 0, Error: "None!" },
+  ];
   const absTarget = path.resolve(process.cwd(), target);
-
-  const tscTime = runCommand(`npx tsc --project ${absTarget}`);
-  const tsgoTime = runCommand(`npx tsgo --project ${absTarget}`);
-
+  try {
+    const tscTime = runCommand(`npx tsc --project ${absTarget}`);
+    res[0]["Time (ms)"] = Number(tscTime.toFixed(2));
+  } catch (e) {
+    res[0]["Error"] = e instanceof Error ? e.message : String(e);
+  }
+  try {
+    const tsgoTime = runCommand(`npx tsgo --project ${absTarget}`);
+    res[1]["Time (ms)"] = Number(tsgoTime.toFixed(2));
+  } catch (e) {
+    res[1]["Error"] = e instanceof Error ? e.message : String(e);
+  }
   console.log("📊 Results:");
-  console.table([
-    { Compiler: "tsc", "Time (ms)": tscTime.toFixed(2) },
-    { Compiler: "tsgo", "Time (ms)": tsgoTime.toFixed(2) },
-  ]);
+  console.table(res);
 }
 
 function main() {
