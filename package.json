@@ -27,7 +27,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@typescript/native-preview": "^7.0.0-dev.20250827.1",
+    "@typescript/native-preview": "^7.0.0-dev.20250828.1",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
