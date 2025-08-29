@@ -1,6 +1,6 @@
 {
   "name": "tsgo-vs-tsc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Benchmark TypeScript-Go against TypeScript (tsgo vs tsc).",
   "keywords": [
     "benchmark",
