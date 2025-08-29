@@ -7,19 +7,41 @@ Quickly see which compiler is faster on your project.
 
 ## 📦 Installation
 
-Using **yarn** (recommended):
+### Global install (recommended)
+
+Using **yarn**:
 
 ```bash
-yarn add -D tsgo-vs-tsc
+yarn global add tsgo-vs-tsc
 ```
 
 Or with **npm**:
 
 ```bash
+npm install -g tsgo-vs-tsc
+```
+
+Now you can run the CLI from anywhere:
+
+```bash
+tsgo-vs-tsc
+```
+
+### Local install (alternative)
+
+If you prefer project-local usage:
+
+```bash
+yarn add -D tsgo-vs-tsc
+# or
 npm install --save-dev tsgo-vs-tsc
 ```
 
-Make sure you also have **TypeScript** and **tsgo** installed in your project.
+Then run via `npx`:
+
+```bash
+npx tsgo-vs-tsc
+```
 
 ---
 
