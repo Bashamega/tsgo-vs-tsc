@@ -5,7 +5,22 @@ import * as path from "path";
 
 function runCommand(cmd: string): number {
   const start = performance.now();
-  execSync(cmd, { stdio: "pipe" });
+  let res: Buffer;
+
+  try {
+    res = execSync(cmd, { stdio: "pipe" });
+  } catch (err: any) {
+    // Hard error: process failed
+    throw new Error(err.stdout?.toString() || err.message);
+  }
+
+  const output = res.toString();
+  if (/error\d+:/i.test(output)) {
+    // Found TypeScript error text even though exit code == 0
+    throw new Error(output);
+  }
+
+  console.log(output);
   return performance.now() - start;
 }
 
