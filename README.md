@@ -80,9 +80,9 @@ tsgo-vs-tsc -l
 
 ## 📌 Notes
 
-* This tool measures compile **execution time only**.
-* It does **not** check correctness of output JavaScript.
-* If either compiler fails, the error is captured and displayed in the results table.
+- This tool measures compile **execution time only**.
+- It does **not** check correctness of output JavaScript.
+- If either compiler fails, the error is captured and displayed in the results table.
 
 ---
 
