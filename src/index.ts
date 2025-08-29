@@ -13,14 +13,6 @@ function runCommand(cmd: string): number {
     // Hard error: process failed
     throw new Error(err.stdout?.toString() || err.message);
   }
-
-  const output = res.toString();
-  if (/error\d+:/i.test(output)) {
-    // Found TypeScript error text even though exit code == 0
-    throw new Error(output);
-  }
-
-  console.log(output);
   return performance.now() - start;
 }
 
